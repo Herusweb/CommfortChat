@@ -8,17 +8,19 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Chat\StoreRequest;
 use App\Http\Resources\Chat\ChatResource;
 use App\Models\Chat;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ChatController extends Controller
 {
     public function index()
     {
-
         $users = User::where('id','!=',auth()->id())->get();
         $users = UserResource::collection($users)->resolve();
+        $chats = Auth::user()->chats()->get();
+        $chats = ChatResource::collection($chats)->resolve();
 
-        return inertia('Chat/Index',compact('users'));
+        return inertia('Chat/Index',compact('users', 'chats'));
     }
     public function store(StoreRequest $request)
     {
@@ -42,6 +44,12 @@ class ChatController extends Controller
         
         $chat = ChatResource::make($chat)->resolve();
 
+        return inertia('Chat/Show', compact('chat'));
+    }
+
+    public function show(Chat $chat)
+    {
+        $chat = ChatResource::make($chat)->resolve();
         return inertia('Chat/Show', compact('chat'));
     }
 }
