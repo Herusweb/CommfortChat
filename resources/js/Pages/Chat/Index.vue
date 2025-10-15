@@ -14,11 +14,13 @@
                     </div>
                     <div class="flex">
                         <div
-                            class="w-5/6 mr-4 h-[80vh] border rounded-xl bg-white border-grey-200 p-4"
+                            class="w-5/6 mr-4 h-[70vh] border rounded-xl bg-white border-gray-200 relative p-4"
                         >
                             <h3 class="text-gray-700 mb-4 text-lg text-center">
                                 Chats
                             </h3>
+                            гнпгп
+
                             <div v-if="chats">
                                 <div
                                     v-for="chat in chats"
