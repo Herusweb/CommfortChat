@@ -24,6 +24,8 @@ class StoreRequest extends FormRequest
         return [
             'chat_id'=> 'required|integer|exists:chats,id',
             'body'=> 'required|string',
+            'user_Ids'=> 'required|array',
+            'user_Ids.*'=> 'required|integer|exists:users,id',
         ];
     }
 }

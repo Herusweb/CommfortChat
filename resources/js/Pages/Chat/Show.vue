@@ -16,7 +16,7 @@
                     <h3 class="text-gray-700 mb-4 text-lg text-center">
                         {{ chat.title ?? "Your chat" }}
                     </h3>
-                    гнпгп
+
                     <div
                         class="absolute bottom-0 left-0 w-full p-1 bg-white border-t border-gray-200 flex items-center gap-2"
                     >
@@ -62,6 +62,7 @@
 
 <script>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import axios from "axios";
 export default {
     name: "Show",
 
@@ -70,14 +71,35 @@ export default {
     data() {
         return {
             body: "",
+            errors: {},
         };
     },
 
     layout: AuthenticatedLayout,
 
+    computed: {
+        userIds() {
+            return this.users
+                .map((user) => {
+                    return user.id;
+                })
+                .filter((userId) => {
+                    return userId !== this.$page.props.auth.user.id;
+                });
+        },
+    },
+
     methods: {
         store() {
-            axios.post("/messages", {});
+            axios
+                .post("/messages", {
+                    chat_id: this.chat.id,
+                    body: this.body,
+                    user_Ids: this.userIds,
+                })
+                .then((res) => {
+                    console.log(res);
+                });
         },
     },
 };
