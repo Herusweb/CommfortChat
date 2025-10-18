@@ -19,8 +19,6 @@
                             <h3 class="text-gray-700 mb-4 text-lg text-center">
                                 Chats
                             </h3>
-                            гнпгп
-
                             <div v-if="chats">
                                 <div
                                     v-for="chat in chats"

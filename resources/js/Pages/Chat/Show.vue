@@ -10,28 +10,48 @@
                 Привет, {{ $page.props.auth.user.name }}!
             </div>
             <div class="flex">
+                <!-- CHAT COLUMN: сделан flex-col, высота контролируется здесь -->
                 <div
-                    class="w-5/6 mr-4 h-[70vh] border rounded-xl bg-white border-gray-200 relative p-4"
+                    class="w-5/6 mr-4 h-[70vh] border rounded-xl bg-white border-gray-200 relative p-4 flex flex-col"
                 >
                     <h3 class="text-gray-700 mb-4 text-lg text-center">
                         {{ chat.title ?? "Your chat" }}
                     </h3>
 
+                    <!-- Сообщения: занимает доступное пространство и скроллится -->
                     <div
-                        class="absolute bottom-0 left-0 w-full p-1 bg-white border-t border-gray-200 flex items-center gap-2"
+                        class="flex-1 overflow-auto mb-4"
+                        ref="messagesContainer"
+                        v-if="messages !== undefined"
                     >
+                        <div
+                            v-for="message in messages"
+                            :key="message.id"
+                            class="mb-2 p-2 border-b border-gray-200 w-full bg-sky-100 rounded-lg"
+                        >
+                            <p class="text-sm font-medium text-gray-700">
+                                {{ message.user_name }}
+                            </p>
+                            <p class="text-gray-800">{{ message.body }}</p>
+                            <p class="text-xs text-gray-400">
+                                {{ message.time }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto flex items-center gap-2">
                         <input
                             class="flex-1 border rounded-xl p-2"
                             type="text"
                             v-model="body"
                             placeholder="Type your message..."
                         />
-                        <a
+                        <button
                             @click.prevent="store()"
-                            href=""
                             class="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600"
-                            >Send</a
                         >
+                            Send
+                        </button>
                     </div>
                 </div>
 
@@ -46,7 +66,7 @@
                             @click.prevent="store(user.id)"
                             v-for="user in users"
                             :key="user.id"
-                            class="flex items-center mb-2 border-b border-grey-300 hover:bg-gray-500 rounded cursor-pointer transition p-4"
+                            class="flex items-center mb-2 border-b border-grey-300 hover:bg-gray-100 rounded cursor-pointer transition p-4"
                         >
                             <span class="mr-2 text-grey-700">{{
                                 user.id
@@ -66,7 +86,7 @@ import axios from "axios";
 export default {
     name: "Show",
 
-    props: ["chat", "users"],
+    props: ["chat", "users", "messages"],
 
     data() {
         return {
@@ -75,7 +95,9 @@ export default {
         };
     },
 
-    layout: AuthenticatedLayout,
+    components: {
+        AuthenticatedLayout,
+    },
 
     computed: {
         userIds() {
@@ -98,8 +120,16 @@ export default {
                     user_Ids: this.userIds,
                 })
                 .then((res) => {
-                    console.log(res);
+                    this.messages.push(res.data);
+                    this.body = "";
+                    this.scrollToBottom();
                 });
+        },
+        scrollToBottom() {
+            this.$nextTick(() => {
+                const container = this.$el.querySelector(".overflow-auto");
+                container.scrollTop = container.scrollHeight;
+            });
         },
     },
 };

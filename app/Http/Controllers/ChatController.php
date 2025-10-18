@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\User\UserResource;
+use App\Http\Resources\Message\MessageResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\Chat\StoreRequest;
 use App\Http\Resources\Chat\ChatResource;
 use App\Models\Chat;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -47,8 +49,10 @@ class ChatController extends Controller
     public function show(Chat $chat)
     {
         $users = $chat->users()->get();
+        $messages = $chat->messages()->get();
+        $messages = MessageResource::collection($messages)->resolve();
         $users = UserResource::collection($users)->resolve();
         $chat = ChatResource::make($chat)->resolve();
-        return inertia('Chat/Show', compact('chat', 'users'));
+        return inertia('Chat/Show', compact('chat', 'users', 'messages'));
     }
 }
