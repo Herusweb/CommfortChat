@@ -22,6 +22,7 @@ class MessageResource extends JsonResource
             'user_id' => $this->user_id,
             'body' => $this->body,
             'time' => $this->time,
+            'is_owner' => $this->is_owner,
         ];
     }
 }

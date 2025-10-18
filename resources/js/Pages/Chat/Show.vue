@@ -27,15 +27,28 @@
                         <div
                             v-for="message in messages"
                             :key="message.id"
-                            class="mb-2 p-2 border-b border-gray-200 w-full bg-sky-100 rounded-lg"
+                            class="mb-2 p-2 border-b border-gray-200 flex"
+                            :class="
+                                message.is_owner
+                                    ? 'justify-end'
+                                    : 'justify-start'
+                            "
                         >
-                            <p class="text-sm font-medium text-gray-700">
-                                {{ message.user_name }}
-                            </p>
-                            <p class="text-gray-800">{{ message.body }}</p>
-                            <p class="text-xs text-gray-400">
-                                {{ message.time }}
-                            </p>
+                            <div
+                                :class="
+                                    message.is_owner
+                                        ? 'bg-green-100 text-gray-900 rounded-br-none border border-green-300 p-3 rounded-2xl '
+                                        : 'bg-blue-100 text-gray-900 rounded-bl-none border border-blue-300 p-3 rounded-2xl '
+                                "
+                            >
+                                <p class="text-sm font-medium text-gray-700">
+                                    {{ message.user_name }}
+                                </p>
+                                <p class="text-gray-800">{{ message.body }}</p>
+                                <p class="text-xs italic text-gray-400">
+                                    {{ message.time }}
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -131,6 +144,9 @@ export default {
                 container.scrollTop = container.scrollHeight;
             });
         },
+    },
+    mounted() {
+        this.scrollToBottom();
     },
 };
 </script>
