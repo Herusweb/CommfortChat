@@ -12,7 +12,7 @@
             <div class="flex">
                 <!-- CHAT COLUMN: сделан flex-col, высота контролируется здесь -->
                 <div
-                    class="w-5/6 mr-4 h-[70vh] border rounded-xl bg-white border-gray-200 relative p-4 flex flex-col"
+                    class="flex-[6] mr-4 h-[70vh] border rounded-xl bg-white border-gray-200 relative p-4 flex flex-col"
                 >
                     <h3 class="text-gray-700 mb-4 text-lg text-center">
                         {{ chat.title ?? "Your chat" }}
@@ -69,7 +69,7 @@
                 </div>
 
                 <div
-                    class="w-1/6 p-4 border bg-white border-grey-300 rounded-xl"
+                    class="flex-[2] p-4 border bg-white border-grey-300 rounded-xl"
                 >
                     <h3 class="text-gray-700 mb-4 text-lg text-center">
                         Users
