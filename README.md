@@ -1,14 +1,36 @@
 🚀 CommfortChat
 
-CommfortChat is a web-based chat application with private and group messaging, built as a fullstack project to demonstrate real-world development workflow and deployment.
+CommfortChat is a fullstack web chat application with private and group messaging.
+The project simulates a real production workflow and demonstrates practical development, Git collaboration, and deployment skills.
 
-The project focuses on clean architecture, modern frontend stack, and production-ready practices.
+🔗 Live Demo: https://your-domain.com
 
-✨ Features
+👤 Demo User: demo@example.com
+ / password
 
-🔐 User authentication
+📸 Preview
 
-💬 Private chats
+<p align="center">
+  <img src="screenshots/login.png" width="400">
+</p>
+<p align="center">
+  <img src="screenshots/Chat1.png" width="400">
+</p>
+<p align="center">
+  <img src="screenshots/Chat2.png" width="400">
+</p>
+<p align="center">
+  <img src="screenshots/Chat3.png" width="400">
+</p>
+<p align="center">
+  <img src="screenshots/ListChat.png" width="400">
+</p>
+
+✨ Core Features
+
+🔐 Authentication (Laravel Auth)
+
+💬 Private messaging
 
 👥 Group chats
 
@@ -16,12 +38,27 @@ The project focuses on clean architecture, modern frontend stack, and production
 
 🧵 Message history with auto-scroll
 
-⚡ Dynamic UI with Vue.js & Inertia
+⚡ Dynamic SPA experience with Inertia.js
 
-📱 Responsive design (Tailwind CSS)
+📱 Responsive layout (Tailwind CSS)
+
+🏗 Architecture Overview
+
+Backend: Laravel (MVC pattern)
+
+API communication: Axios
+
+Frontend: Vue.js + Inertia.js (SPA without separate API layer)
+
+Database: MySQL (Eloquent ORM relationships)
+
+Authorization: Role-based logic
+
+Deployment: Linux production server
+
+The application follows separation of concerns and clean commit history.
 
 🛠 Tech Stack
-
 Backend
 
 Laravel
@@ -30,7 +67,7 @@ MySQL
 
 Eloquent ORM
 
-REST API
+REST principles
 
 Frontend
 
@@ -50,35 +87,35 @@ Git Flow (main / develop)
 
 Pull Requests
 
-Deployed on dedicated server (Hetzner)
+Deployed on dedicated Hetzner server
 
-🧠 Development Process
+Nginx + PHP-FPM + SSL
 
-This project was developed using a real-world Git workflow:
+🔁 Development Workflow
 
-main – stable, production-ready branch
+The project was developed using a structured Git workflow:
 
-develop – active development
+main — stable production-ready branch
 
-Features implemented incrementally
+develop — active development
 
-Regular Pull Requests with clear descriptions
+Feature-based commits
+
+Regular Pull Requests with descriptions
 
 Merge commits used to preserve development history
 
-This approach helped keep the codebase clean and maintainable.
+Main branch protected from direct pushes
 
 🚀 Deployment
 
-The application is deployed to a dedicated Hetzner server.
-
-Production setup:
+Production server configuration:
 
 Ubuntu 22.04
 
 Nginx
 
-PHP-FPM
+PHP 8.2 (FPM)
 
 MySQL
 
@@ -86,11 +123,8 @@ SSL via Let's Encrypt
 
 The project runs in a production-like environment and is publicly accessible.
 
-🔗 Live demo:
-👉 [add your domain here]
-
-⚙️ Installation (Local Setup)
-git clone https://github.com/your-username/commfortchat.git
+⚙️ Local Installation
+git clone https://github.com/Herusweb/CommfortChat.git
 cd commfortchat
 
 composer install
@@ -100,32 +134,35 @@ cp .env.example .env
 php artisan key:generate
 
 php artisan migrate
-npm run dev
+npm run build
+
 php artisan serve
 📚 What I Learned
 
-Building fullstack applications with Laravel & Vue.js
+Fullstack application development (Laravel + Vue)
 
-Client-server communication using Inertia.js
+SPA architecture using Inertia.js
 
-Working with REST APIs and Axios
+Client-server communication via Axios
 
-Database relationships and access control
+Role-based authorization
 
-Git Flow and Pull Requests
+Structured Git workflow with PR
 
-Deploying applications to a Linux server
+Deploying to Linux production server
 
-🎯 Project Goal
+🎯 Project Purpose
 
-The goal of this project was to simulate a real development environment and demonstrate practical skills required for a Junior Frontend / Fullstack Developer position.
+The goal of this project was to demonstrate readiness for a Junior Frontend / Fullstack Developer role by simulating a real development environment and production deployment.
 
-👤 Author
+👨‍💻 Author
 
-Your Name
+HerusWeb
 Junior Fullstack Developer (Laravel / Vue.js)
 
-GitHub: https://github.com/your-username
+GitHub: https://github.com/Herusweb
+
+LinkedIn: [optional]
 
 ## License
 
