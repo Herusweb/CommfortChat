@@ -3,10 +3,10 @@
 CommfortChat is a fullstack web chat application with private and group messaging.
 The project simulates a real production workflow and demonstrates practical development, Git collaboration, and deployment skills.
 
-🔗 Live Demo: https://your-domain.com
+🔗 Live Demo: https://commfortchat.xyz
 
-👤 Demo User: demo@example.com
- / password
+👤 Demo User: demo@commfortchat.xyz
+ / password : 12345678
 
 📸 Preview
 
@@ -28,13 +28,11 @@ The project simulates a real production workflow and demonstrates practical deve
 
 ✨ Core Features
 
-🔐 Authentication (Laravel Auth)
+🔐 Authentication (Laravel Breeze)
 
 💬 Private messaging
 
 👥 Group chats
-
-🧑‍💼 Role-based access (Admin / User)
 
 🧵 Message history with auto-scroll
 
