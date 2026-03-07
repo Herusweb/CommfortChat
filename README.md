@@ -1,5 +1,18 @@
 🚀 CommfortChat
 
+## About the Name
+
+The name **CommfortChat** is inspired by the classic desktop messenger **CommFort**.
+
+It combines the words:
+
+- **Communication**
+- **Comfort**
+
+CommfortChat is a modern web implementation inspired by the classic LAN messenger CommFort.
+
+The goal of the project is to recreate a simple and comfortable internal chat system using a modern web stack built with Laravel and Vue.js.
+
 CommfortChat is a fullstack web chat application with private and group messaging.
 The project simulates a real production workflow and demonstrates practical development, Git collaboration, and deployment skills.
 
@@ -42,52 +55,48 @@ The project simulates a real production workflow and demonstrates practical deve
 
 🏗 Architecture Overview
 
-Backend: Laravel (MVC pattern)
+The application follows a monolithic fullstack architecture:
 
-API communication: Axios
+Backend:
+Laravel (MVC pattern)
 
-Frontend: Vue.js + Inertia.js (SPA without separate API layer)
+Frontend:
+Vue.js + Inertia.js SPA
 
-Database: MySQL (Eloquent ORM relationships)
+Communication:
+Axios HTTP requests
 
-Authorization: Role-based logic
+Database:
+MySQL with Eloquent ORM relationships
 
-Deployment: Linux production server
+Authorization:
+Role-based access logic
+
+Deployment:
+Linux production server (Nginx + PHP-FPM)
 
 The application follows separation of concerns and clean commit history.
 
 🛠 Tech Stack
+
 Backend
-
-Laravel
-
-MySQL
-
-Eloquent ORM
-
-REST principles
+- Laravel
+- MySQL
+- Eloquent ORM
+- REST principles
 
 Frontend
-
-Vue.js
-
-Inertia.js
-
-Tailwind CSS
-
-Axios
+- Vue.js
+- Inertia.js
+- Tailwind CSS
+- Axios
 
 DevOps
-
-Git & GitHub
-
-Git Flow (main / develop)
-
-Pull Requests
-
-Deployed on dedicated Hetzner server
-
-Nginx + PHP-FPM + SSL
+- Git & GitHub
+- Git Flow (main / develop)
+- Pull Requests
+- Hetzner server
+- Nginx + PHP-FPM + SSL
 
 🔁 Development Workflow
 
@@ -107,21 +116,19 @@ Main branch protected from direct pushes
 
 🚀 Deployment
 
-Production server configuration:
+Production environment:
 
-Ubuntu 22.04
+- Ubuntu 22.04
+- Nginx
+- PHP 8.2 (FPM)
+- MySQL
+- SSL via Let's Encrypt
 
-Nginx
-
-PHP 8.2 (FPM)
-
-MySQL
-
-SSL via Let's Encrypt
-
-The project runs in a production-like environment and is publicly accessible.
+The application runs on a production-like environment and is publicly accessible.
 
 ⚙️ Local Installation
+
+```bash
 git clone https://github.com/Herusweb/CommfortChat.git
 cd commfortchat
 
@@ -135,6 +142,7 @@ php artisan migrate
 npm run build
 
 php artisan serve
+
 📚 What I Learned
 
 Fullstack application development (Laravel + Vue)
