@@ -95,7 +95,7 @@ DevOps
 - Git & GitHub
 - Git Flow (main / develop)
 - Pull Requests
-- Hetzner server
+- Hetzner Cloud server
 - Nginx + PHP-FPM + SSL
 
 🔁 Development Workflow
@@ -142,6 +142,7 @@ php artisan migrate
 npm run build
 
 php artisan serve
+```
 
 📚 What I Learned
 
