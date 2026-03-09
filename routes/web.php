@@ -14,9 +14,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/chats', function () {
+    return Inertia::render('Chats.Index');
+})->middleware(['auth', 'verified'])->name('chats.index');
 
 Route::middleware('auth')->group(function () {
 
